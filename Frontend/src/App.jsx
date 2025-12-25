@@ -1,14 +1,20 @@
 import { useState } from 'react'
+import Navbar from './components/Navbar'
+import Home from './pages/Home'
+import Footer from './components/Footer'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-     <h1 className="text-3xl font-bold text-blue-600">Hello Tailwind!</h1>
             {/* A  responsive navbar component will appear here */}
-   
+   <Navbar />
+  
+   <Home />
 
+   {/* A responsive footer component will appear here */}
+   <Footer />
 
     </>
   )

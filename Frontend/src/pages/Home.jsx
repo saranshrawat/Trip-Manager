@@ -1,9 +1,13 @@
 import React from 'react'
-
+import Headers from '../components/Heading'
+import Description from '../components/Description'
+import Carousel from '../components/Carousel'
 function Home() {
   return (
     <div>
-           {/* A  header will come here */}
+          <Headers />
+          <Description /> 
+          <Carousel />
 
 
         
