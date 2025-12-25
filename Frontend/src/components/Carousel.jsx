@@ -1,59 +1,35 @@
 import React from 'react'
 import Cards from './Cards'
-import chopta from '../assets/chopta.jpg'
-import kedarnath from '../assets/kedarnath.jpg'
-import norway from '../assets/norway.jpg'
-import switzerland from '../assets/switzerland.jpg'
-import madmaheshwar from '../assets/madmaheshwar.jpg'
-import ladakh from '../assets/ladakh.jpg'
-import Slider from "react-slick";
-
-
+import { carouselData } from '../data/data'
 
 function Carousel() {
-  
-
- const settings = {
-  centerMode: true,
-  infinite: true,
-  centerPadding: "0px", // remove extra padding
-  slidesToShow: 3,
-  speed: 500,
-  fade: true,
-  arrows: true, 
-  responsive: [
-    {
-      breakpoint: 1024,
-         settings: {
-        slidesToShow: 2,
-        centerPadding: "0px",
-      },
-    },
-    {
-      breakpoint: 640,
-      settings: {
-        slidesToShow: 1,
-        centerPadding: "0px",
-      },
-    },
-  ],
-};
-
-
   return (
-    
-    <div className="slider-container">
-         <Slider {...settings}>
-            <Cards image={chopta} name="Chopta" description="Beautiful mountain views" load="false" />
-            <Cards image={kedarnath} name="Kedarnath" description="Sacred temple in the Himalayas" load="false" />
-            <Cards image={norway} name="Norway" description="Scenic fjords and Northern Lights" load="false" />
-            <Cards image={switzerland} name="Switzerland" description="Alpine landscapes and charming villages" load="false"/>
-            <Cards image={madmaheshwar} name="Madmaheshwar" description="Historic pilgrimage site in Madhya Pradesh"  load="false"/>
-            <Cards image={ladakh} name="Ladakh" description="Stunning mountain landscapes and monasteries" load="false"/>
+   <div className="carousel-container">
+  {/* Beautiful central heading */}
+  <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-center 
+                 text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-pink-500 to-purple-600 
+                 drop-shadow-lg tracking-wide mb-8">
+    Explore and Discover Unlike Before
+  </h1>
 
-         </Slider>
-
-    </div>
+  <div className="slider overflow-hidden mask-[linear-gradient(90deg,transparent,rgba(255,255,255,1)_20%,rgba(255,255,255,1)_80%,transparent)]">
+    <ul className="slide-track flex animate-scroll pause-on-hover">
+      {carouselData.map((item) => (
+        <li
+          key={item.id}
+          className="slide shrink-0 w-[30%] h-[80%] flex items-center p-4"
+        >
+          <Cards
+            title={item.title}
+            description={item.description}
+            image={item.image}
+            varient={item.varient}
+          />
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>
   )
 }
 
