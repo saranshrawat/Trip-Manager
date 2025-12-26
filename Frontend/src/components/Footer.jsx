@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
  function Footer()
  {   return (
@@ -10,7 +11,7 @@ import React from 'react';
                         <a
 
                             href=""
-                            className="m-1 h-9 w-9 rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+                           className="m-1 h-9 w-9 rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:scale-110 focus:outline-none focus:ring-0"
 
                         >
                             <svg
@@ -31,7 +32,7 @@ import React from 'react';
                         <a
 
                            href="https://www.instagram.com/saransh_rawat16?igsh=MTMyZTNkcWF4cGRzdg=="
-                            className="m-1 h-9 w-9 rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+                            className="m-1 h-9 w-9 rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:scale-110 focus:outline-none focus:ring-0"
 
                         >
                             <svg
@@ -47,7 +48,7 @@ import React from 'react';
 
                         <a
                            href="https://www.linkedin.com/in/saransh-rawat-35bb781b7/"
-                            className="m-1 h-9 w-9 rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+                            className="m-1 h-9 w-9 rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:scale-110 focus:outline-none focus:ring-0"
 
                         >
                             <svg
@@ -64,7 +65,7 @@ import React from 'react';
                         <a
                          href="https://github.com/saranshrawat"
                           
-                            className="m-1 h-9 w-9 rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+                            className="m-1 h-9 w-9 rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:scale-110 focus:outline-none focus:ring-0"
 
                         >
                             <svg

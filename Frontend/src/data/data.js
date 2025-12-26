@@ -4,6 +4,10 @@ import norway from '../assets/norway.jpg'
 import switzerland from '../assets/switzerland.jpg'
 import madmaheshwar from '../assets/madmaheshwar.jpg'
 import ladakh from '../assets/ladakh.jpg'
+import profile_img_1 from '../assets/profile_img_1.png'
+import profile_img_2 from '../assets/profile_img_2.png'
+import profile_icon from '../assets/profile_icon.png'
+import rating_star from '../assets/rating_star.svg'
 
 
 
@@ -131,19 +135,19 @@ export const AboutUsData = [
    
 ]
 
-   export const AboutUsImageCardData = [
-    {id:1,
-    image:chopta,
-    varient:"AboutUs_imageCard"},
+//    export const AboutUsImageCardData = [
+//     {id:1,
+//     image:chopta,
+//     varient:"AboutUs_imageCard"},
 
-    {id:2,
-    image:kedarnath,
-    varient:"AboutUs_imageCard"},
-   ]
+//     {id:2,
+//     image:kedarnath,
+//     varient:"AboutUs_imageCard"},
+//    ]
 
 
 
-// All pages Heading data
+// All pages Text data
 export const HomepageData = {
     title: "Welcome to ",
     title_span: "My Trip Manager",
@@ -156,8 +160,70 @@ export const HomepageData = {
 
 export const AboutpageData = {
     subtitle: "Our Mission and Vision",
-    description: "At My Trip Manager, our mission is to empower travelers to explore the world with confidence and ease. We envision a world where every journey is well-planned, memorable, and stress-free, thanks to our innovative trip management solutions.",
+    description: "At My Trip Manager, our mission is to empower travelers to explore the world with confidence and ease. We envision a world where every journey is well-planned, memorable, and stress-free, thanks to our innovative trip management solutions.At My Trip Manager, our mission is to empower travelers to explore the world with confidence and ease. We envision a world where every journey is well-planned, memorable, and stress-free, thanks to our innovative trip management solutions",
     buttonText: "Explore",
     buttonLink: "/login",
     varient:"Aboutpage"
 }
+
+
+export const AboutPage_secondHeading = {
+    subtitle: "Our Mission and Vision",
+    description: "At My Trip Manager, our mission is to empower travelers to explore the world with confidence and ease. We envision a world where every journey is well-planned, memorable, and stress-free, thanks to our innovative trip management solutions.At My Trip Manager, our mission is to empower travelers to explore the world with confidence and ease. We envision a world where every journey is well-planned, memorable, and stress-free, thanks to our innovative trip management solutionsAt My Trip Manager, our mission is to empower travelers to explore the world with confidence and ease. We envision a world where every journey is well-planned, memorable, and stress-free, thanks to our innovative trip management solutions.At My Trip Manager, our mission is to empower travelers to explore the world with confidence and ease. We envision a world where every journey is well-planned, memorable, and stress-free, thanks to our innovative trip management solutions At My Trip Manager, our mission is to empower travelers to explore the world with confidence and ease. We envision a world where every journey is well-planned, memorable, and stress-free, thanks to our innovative trip management solutions.At My Trip Manager, our mission is to empower travelers to explore the world with confidence and ease. We envision a world where every journey is well-planned, memorable, and stress-free, thanks to our innovative trip management solutionsAt My Trip Manager, our mission is to empower travelers to explore the world with confidence and ease. We envision a world where every journey is well-planned, memorable, and stress-free, thanks to our innovative trip management solutions.At My Trip Manager, our mission is to empower travelers to explore the world with confidence and ease. We envision a world where every journey is well-planned, memorable, and stress-free, thanks to our innovative trip management solutions.",
+    varient:"Aboutpage_secondHeading"
+}
+
+// Testimonial data
+
+export const testimonialsData = [
+    {
+        image:profile_img_1,
+        name:'Donald Jackman',
+        role:'Graphic Designer',
+        stars:5,
+        text:`I've been using bg.removal for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.`
+    },
+    {
+        image:profile_img_2,
+        name:'Richard Nelson',
+        role:'Content Creator',
+        stars:4,
+        text:`I've been using bg.removal for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.`
+    },
+    {
+        image:profile_img_1,
+        name:'Donald Jackman',
+        role:' Graphic Designer',
+        stars:5,
+        text:`I've been using bg.removal for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.`
+    },
+]
+
+
+export const faqData = [
+     {
+    id: 1,
+    question: "What is Trip Manager?",
+    answer: "Trip Manager is a web application designed to help users plan, organize, and manage their travel itineraries efficiently."
+  },
+     {
+        id: 2,
+    question: "How does Trip Manager work?",
+    answer: "Trip Manager allows users to create and manage travel itineraries, set reminders, and track expenses all in one place."
+  },
+     {
+    id: 3,
+    question: "Is Trip Manager free to use?",
+    answer: "Yes, Trip Manager offers a free version with basic features. Premium features are available through a subscription."
+  },
+     {
+    id: 4,
+    question: "Can I share my trip plans with others?",
+    answer: "Yes, you can share your trip plans with friends and family for collaborative planning."
+  },
+     {
+    id: 5,
+    question: "What makes Trip Manager different from other travel apps?",
+    answer: "Trip Manager focuses on simplicity and ease of use, providing a seamless experience for planning and managing trips."
+  }
+]

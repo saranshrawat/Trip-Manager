@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Cards({key,counter ,image, title, description, varient,explore=null}) {
+function Cards({key,counter ,image=null, title, description, varient,explore=null}) {
  const variants = {
     carousel: {
     container: "w-80 h-96 bg-gray-900 text-gray-100 rounded-xl shadow-lg p-6 flex flex-col justify-between hover:shadow-2xl transition-transform duration-300 hover:scale-105",
@@ -12,16 +12,20 @@ function Cards({key,counter ,image, title, description, varient,explore=null}) {
    
   },
   AboutUs_card: {
-    container: "bg-gray-800 text-white",
-    counter: "text-3xl font-bold text-blue-800 mb-2",
-     title_style: "text-xl font-bold text-yellow-300",
-    description: "text-sm text-gray-300",
+    container: "bg-white/20 p-8 sm:p-10 md:p-12 rounded-lg shadow-md border w-full sm:w-96 md:w-80 m-auto cursor-pointer hover:scale-[1.02] transition-all duration-200 hover:scale-[1.02] transition-all duration-200",
+  
+  counter: "text-lg sm:text-xl md:text-2xl font-semibold mt-3 text-center",
+  
+  title_style: "text-gray-500 mb-4 text-sm sm:text-base md:text-lg text-center",
+  
+  description: "text-center text-xs sm:text-sm md:text-base text-gray-700 leading-relaxed",
+
   },
 
-  AboutUs_imageCard: {
-    container: "bg-white text-gray-900",
-    imageStyle: "w-full h-40 object-cover rounded-md mb-3",
-  },
+  // AboutUs_imageCard: {
+  //   container: "bg-white text-gray-900",
+  //   imageStyle: "w-full h-40 object-cover rounded-md mb-3",
+  // },
 
   task_card: {
     container: "bg-gray-800 text-white",

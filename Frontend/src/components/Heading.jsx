@@ -22,10 +22,10 @@ function Heading({ title, title_span, subtitle, description, buttonText, buttonL
    button:"inline-block px-8 py-1 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition duration-200"
        },
     
-       AboutPage_secondHeading:{
+   AboutPage_secondHeading:{
          container: "bg-white py-10 px-6 sm:px-12 lg:px-24",
          containerInner: "max-w-6xl mx-auto text-left space-y-4",
-         title:"text-5xl sm:text-6xl font-extrabold text-gray-900 leading-tight",
+         description: "text-l sm:text-xl text-gray-600 max-w-7xl",
        }
 
   }

@@ -12,9 +12,9 @@ function App() {
             {/* A  responsive navbar component will appear here */}
    <Navbar />
   
-   <Home />
+   {/* <Home /> */}
 
-   {/* <About/> */}
+   <About/>
 
    {/* A responsive footer component will appear here */}
    <Footer />

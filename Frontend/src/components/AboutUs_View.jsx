@@ -4,7 +4,7 @@ import backgroundImage from '../assets/background.jpg';
 function AboutUs_View() 
  {
   return (
- <div className="relative bg-gray-900 h-[60vh] sm:h-[70vh] md:h-[100vh] flex rounded-lg">
+ <div className="relative bg-gray-900 h-[60vh] sm:h-[70vh] md:h-screen flex rounded-lg">
   {/* Background image with reduced width */}
   <img
     src={backgroundImage}
