@@ -135,6 +135,10 @@ export const AboutUsData = [
    
 ]
 
+
+
+
+
 //    export const AboutUsImageCardData = [
 //     {id:1,
 //     image:chopta,
@@ -172,6 +176,16 @@ export const AboutPage_secondHeading = {
     description: "At My Trip Manager, our mission is to empower travelers to explore the world with confidence and ease. We envision a world where every journey is well-planned, memorable, and stress-free, thanks to our innovative trip management solutions.At My Trip Manager, our mission is to empower travelers to explore the world with confidence and ease. We envision a world where every journey is well-planned, memorable, and stress-free, thanks to our innovative trip management solutionsAt My Trip Manager, our mission is to empower travelers to explore the world with confidence and ease. We envision a world where every journey is well-planned, memorable, and stress-free, thanks to our innovative trip management solutions.At My Trip Manager, our mission is to empower travelers to explore the world with confidence and ease. We envision a world where every journey is well-planned, memorable, and stress-free, thanks to our innovative trip management solutions At My Trip Manager, our mission is to empower travelers to explore the world with confidence and ease. We envision a world where every journey is well-planned, memorable, and stress-free, thanks to our innovative trip management solutions.At My Trip Manager, our mission is to empower travelers to explore the world with confidence and ease. We envision a world where every journey is well-planned, memorable, and stress-free, thanks to our innovative trip management solutionsAt My Trip Manager, our mission is to empower travelers to explore the world with confidence and ease. We envision a world where every journey is well-planned, memorable, and stress-free, thanks to our innovative trip management solutions.At My Trip Manager, our mission is to empower travelers to explore the world with confidence and ease. We envision a world where every journey is well-planned, memorable, and stress-free, thanks to our innovative trip management solutions.",
     varient:"Aboutpage_secondHeading"
 }
+
+
+ export const ContactPageData = {
+    title: "Get in Touch",
+    title_span: "With our Team",
+    subtitle: "We'd love to hear from you!",
+    description: "We'd love to hear from you! Whether you have questions, feedback, or need assistance, our team is here to help. Reach out to us through any of the following methods:",
+    varient:"Contactpage"
+}
+ 
 
 // Testimonial data
 
@@ -227,3 +241,12 @@ export const faqData = [
     answer: "Trip Manager focuses on simplicity and ease of use, providing a seamless experience for planning and managing trips."
   }
 ]
+
+
+// My Places data todo board
+
+export const VisitColumns=[
+    {id:'to visit', title: "TO VISIT"},
+    {id:'visited', title: "VISITED"},
+    {id:'favourited', title:"FAVOURITES"}
+  ]

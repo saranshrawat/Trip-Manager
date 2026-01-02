@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import Contact from '../pages/Contact';
 
 function Heading({ title, title_span, subtitle, description, buttonText, buttonLink, varient }) {
   const variants ={
@@ -26,7 +27,20 @@ function Heading({ title, title_span, subtitle, description, buttonText, buttonL
          container: "bg-white py-10 px-6 sm:px-12 lg:px-24",
          containerInner: "max-w-6xl mx-auto text-left space-y-4",
          description: "text-l sm:text-xl text-gray-600 max-w-7xl",
-       }
+       },
+
+      Contactpage:{
+
+         container:"bg-white py-20 px-6 sm:px-12 lg:px-24",
+          containerInner:"max-w-4xl mx-auto text-center space-y-6",
+          title:"text-5xl sm:text-6xl font-extrabold text-gray-900 leading-tight",
+          title_span:"text-blue-600",
+          subtitle:"text-2xl sm:text-3xl text-gray-700 font-medium",
+          description:"text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto",
+
+      } 
+
+
 
   }
 
