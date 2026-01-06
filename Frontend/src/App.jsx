@@ -5,26 +5,37 @@ import About from './pages/About'
 import Footer from './components/Footer'
 import Contact from './pages/Contact'
 import MyPlaces from './pages/MyPlaces'
+import RequireAuth from './components/RequireAuth'
+import { Routes,Route } from 'react-router-dom'
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-            {/* A  responsive navbar component will appear here */}
-   <Navbar />
   
-   {/* <Home /> */}
+  return (
+   <>
+      {/* Responsive navbar */}
+      <Navbar />
 
-   {/* <About/> */}
+      {/* Define routes */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
 
-   {/* <Contact /> */}
+        {/* Protected route */}
+        <Route
+          path="/myPlaces"
+          element={
+            <RequireAuth>
+              <MyPlaces />
+            </RequireAuth>
+          }
+        />
+      </Routes>
 
-   <MyPlaces/>
-   {/* A responsive footer component will appear here */}
-   <Footer />
-
+      {/* Responsive footer */}
+      <Footer />
     </>
+
   )
 }
 

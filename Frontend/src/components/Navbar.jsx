@@ -2,9 +2,15 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleNavbar, setActivePage } from '../redux/slices/navbar_slice';
+import LoginButton from './LoginButton';
+import LogoutButton from './LogoutButton';
+import UserProfile from './UserProfile';
+import { useAuth0 } from '@auth0/auth0-react';
+
 
 function Navbar() {
   const dispatch = useDispatch();
+  const { isAuthenticated } = useAuth0();
   const isOpen = useSelector((state) => state.navbar.isOpen);
   const activePage = useSelector((state) => state.navbar.activePage);
 
@@ -45,12 +51,23 @@ function Navbar() {
             ))}
 
             {/* Login button with margin-right */}
-            <Link
-              to="/login"
+            <div
+              
               className="px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition duration-200 mr-4"
             >
-              Login
-            </Link>
+            {isAuthenticated ? (
+          <>
+            <UserProfile />
+            <LogoutButton />
+          </>
+        ) : (
+          <LoginButton />
+        )}
+
+               
+            </div>
+
+                    
           </div>
 
           {/* Mobile Menu Button */}
