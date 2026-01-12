@@ -250,3 +250,13 @@ export const VisitColumns=[
     {id:'visited', title: "VISITED"},
     {id:'favourited', title:"FAVOURITES"}
   ]
+
+
+  export const Categories = [
+  { label: "Hotels", value: "accommodation.hotel" },
+  { label: "Restaurants", value: "catering.restaurant" },
+  { label: "Cafes", value: "catering.cafe" },
+  { label: "Shops", value: "commercial.shop" },
+  { label: "Attractions", value: "tourism.attraction" },
+  { label: "Parks", value: "leisure.park" }
+];

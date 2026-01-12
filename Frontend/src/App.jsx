@@ -25,9 +25,10 @@ function App() {
         <Route
           path="/myPlaces"
           element={
-            <RequireAuth>
-              <MyPlaces />
-            </RequireAuth>
+            <MyPlaces />
+            // <RequireAuth>
+            //   <MyPlaces />
+            // </RequireAuth>
           }
         />
       </Routes>
