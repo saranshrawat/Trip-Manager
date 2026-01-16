@@ -2,11 +2,15 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { Categories } from '../data/data';
 import { useDebouncedValue } from '../hooks/customDebounce';
+import { useAuth0 } from '@auth0/auth0-react';   // ✅ Import Auth0 hook
 
 const MIN_QUERY_LENGTH = 2;
 const DEFAULT_DEBOUNCE = 400;
+const API_BASE = process.env.REACT_APP_API_BASE; // ✅ Environment-based API base
 
 export default function SearchBar({ onResults }) {
+  const { getAccessTokenSilently } = useAuth0();   // ✅ Get token function
+
   const [input, setInput] = useState('');
   const debouncedInput = useDebouncedValue(input, DEFAULT_DEBOUNCE);
 
@@ -19,14 +23,21 @@ export default function SearchBar({ onResults }) {
   const [searching, setSearching] = useState(false);
   const [placesError, setPlacesError] = useState(null);
 
-  // keyboard nav
   const [highlightIndex, setHighlightIndex] = useState(-1);
   const listRef = useRef(null);
-
-  // abort controller for suggestion fetches
   const abortRef = useRef(null);
 
-  // fetch suggestions when debounced input changes (using axios)
+  // helper: get axios config with token
+  async function getAuthConfig(controller) {
+    const token = await getAccessTokenSilently();
+    return {
+      headers: { Authorization: `Bearer ${token}` },
+      signal: controller?.signal,
+      timeout: 8000,
+    };
+  }
+
+  // fetch suggestions
   useEffect(() => {
     const q = (debouncedInput || '').trim();
     if (q.length < MIN_QUERY_LENGTH) {
@@ -35,7 +46,6 @@ export default function SearchBar({ onResults }) {
       return;
     }
 
-    // abort previous
     if (abortRef.current) {
       abortRef.current.abort();
       abortRef.current = null;
@@ -46,24 +56,21 @@ export default function SearchBar({ onResults }) {
     setLoadingSugg(true);
     setSuggError(null);
 
-    const url = `/api/search/suggestions?q=${encodeURIComponent(q)}`;
-
-    axios
-      .get(url, { signal: controller.signal, timeout: 8000 })
-      .then((res) => {
-        // expect [{ label, lat, lon }]
+    (async () => {
+      try {
+        const config = await getAuthConfig(controller);
+        const url = `${API_BASE}/api/search/suggestions?q=${encodeURIComponent(q)}`;
+        const res = await axios.get(url, config);
         setSuggestions(res.data || []);
-      })
-      .catch((err) => {
-        // axios aborts with code 'ERR_CANCELED' or name 'CanceledError'
+      } catch (err) {
         if (err?.code === 'ERR_CANCELED' || err?.name === 'CanceledError') return;
         console.error('Suggestions error', err);
         setSuggError('Unable to load suggestions');
-      })
-      .finally(() => {
+      } finally {
         setLoadingSugg(false);
         abortRef.current = null;
-      });
+      }
+    })();
 
     return () => {
       if (abortRef.current) {
@@ -71,7 +78,7 @@ export default function SearchBar({ onResults }) {
         abortRef.current = null;
       }
     };
-  }, [debouncedInput]);
+  }, [debouncedInput, getAccessTokenSilently]);
 
   // clear selectedPlace if user edits input
   useEffect(() => {
@@ -128,12 +135,19 @@ export default function SearchBar({ onResults }) {
         lat: selectedPlace.lat,
         lon: selectedPlace.lon,
         category,
-        limit: 12
+        limit: 12,
       };
-      const res = await axios.post('/api/search/places', payload, { timeout: 10000 });
+      const token = await getAccessTokenSilently();
+      const res = await axios.post(`${API_BASE}/api/search/places`, payload, {
+        headers: { Authorization: `Bearer ${token}` },
+        timeout: 10000,
+      });
       const results = res.data?.results || [];
       if (onResults) onResults(results);
-      localStorage.setItem('last_search', JSON.stringify({ place: selectedPlace, category, ts: Date.now() }));
+      localStorage.setItem(
+        'last_search',
+        JSON.stringify({ place: selectedPlace, category, ts: Date.now() })
+      );
     } catch (err) {
       console.error('Search error', err);
       setPlacesError('Search failed. Try again.');
