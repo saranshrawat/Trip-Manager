@@ -1,5 +1,5 @@
 import express from 'express';
-import Trip from '../models/Trip.js';
+import checkJwt from '../Middlewares/auth.js'
 import User from '../Models/userModel.js'
 
 const router = express.Router();

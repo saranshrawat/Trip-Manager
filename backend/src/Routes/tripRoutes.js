@@ -1,21 +1,21 @@
+// backend/routes/trips.js
 import express from 'express';
-import Trip from '../models/Trip.js';
+import {
+  createTrip,
+  listTrips,
+  getTrip,
+  updateTrip,
+  deleteTrip
+} from '../Controllers/tripController.js';
+import checkJwt from '../Middlewares/auth.js'
 
 const router = express.Router();
 
-// GET all trips for a user from trip document
-router.get('/', async (req, res) => {
-  const { sub } = req.auth.payload;
-  const trips = await Trip.find({ userId: sub });
-  res.json(trips);
-});
+// All trip routes require authentication
+router.post('/', checkJwt, createTrip);        // POST /api/trips
+router.get('/', checkJwt, listTrips);          // GET /api/trips
+router.get('/:id', checkJwt, getTrip);         // GET /api/trips/:id
+router.put('/:id', checkJwt, updateTrip);      // PUT /api/trips/:id
+router.delete('/:id', checkJwt, deleteTrip);   // DELETE /api/trips/:id
 
-
-// POST new trip
-router.post('/', async (req, res) => {
-  const { sub } = req.auth.payload;
-  const newTrip = new Trip({ ...req.body, userId: sub });
-  await newTrip.save();
-  res.status(201).json(newTrip);
-});
 export default router;
